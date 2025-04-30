@@ -1,11 +1,29 @@
 import os
 import random
 import shutil
+import argparse
 from typing import Dict
+
+parser = argparse.ArgumentParser(description='preprocess data for training')
+parser.add_argument(
+    '--data_dir',
+    type=str,
+    required=True,
+    help='The absolute path to the data to be used and modified'
+)
+parser.add_argument(
+    '--random_seed',
+    type=int,
+    help='Seed to preserve functionality across runs'
+)
+args = parser.parse_args()
+data_dir = args.data_dir
+random_seed = args.random_seed if args.random_seed else 123
+random.seed(random_seed)
  
+
 # suffles and indexes 
-def train_val_split(rand_seed: int, data_dir: str, split_ratio: float) -> Dict:
-    random.seed(rand_seed)
+def train_val_split(split_ratio: float) -> Dict:
     train_dir = os.path.join(data_dir, 'train')
     val_dir = os.path.join(data_dir, 'val')
 
@@ -27,4 +45,4 @@ def train_val_split(rand_seed: int, data_dir: str, split_ratio: float) -> Dict:
 
 
 if __name__ == '__main__':
-    train_val_split(123, os.path.abspath('data/raw'), 0.8)
+    train_val_split(0.8)

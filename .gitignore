@@ -1,2 +1,4 @@
 data/raw
 experiment-notes.txt
+wandb/
+yolo*.pt

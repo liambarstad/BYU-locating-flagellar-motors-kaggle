@@ -1,1 +1,2 @@
-mlflow==2.18.0
+wandb==0.19.10
+ultralytics==8.3.121
