@@ -1,0 +1,5 @@
+path: /workspace/byu
+train: processed/images/train
+val: processed/images/val
+names:
+  0: motor
