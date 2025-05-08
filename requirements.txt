@@ -1,3 +1,4 @@
 ipdb==0.13.13
 wandb==0.19.10
 ultralytics==8.3.121
+ray==2.46.0
